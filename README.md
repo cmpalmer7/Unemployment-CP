@@ -7,11 +7,11 @@ Obtain an [API Key] (Obtain an [AlphaVantage API Key](https://www.alphavantage.c
 Create virtual environment:
 
 ```sh
-conda create -n unemployemnt-env python=3.10
+conda create -n unemployment-env python=3.10
 ```
 
 ```sh
-conda activate unemployemnt-env
+conda activate unemployment-env
 ```
 
 Install third-party packages:
