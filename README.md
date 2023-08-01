@@ -34,3 +34,10 @@ Run the report:
 ```sh
 python -m app.unemployment
 ```
+
+## Testing
+
+
+```sh
+pytest
+```
