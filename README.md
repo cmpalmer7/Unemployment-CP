@@ -46,3 +46,5 @@ FLASK_APP=web_app flask run
 ```sh
 pytest
 ```
+
+## [Deployment Guide](/DEPLOYING.md)
