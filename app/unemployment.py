@@ -31,7 +31,7 @@ def format_pct(my_number):
     """
     return f"{my_number:.2f}%"
 
-def fetch_data():
+def fetch_unemployment_data():
     """Fetches unemployment data from the AlphaVantage API.
         Returns data as a list of dictionaries, where each represents the unemployment rate for a given month.
         Formats rates as floats.
@@ -57,7 +57,7 @@ def fetch_data():
 if __name__ == "__main__":
     # only run if run from command line 
 
-    data = fetch_data()
+    data = fetch_unemployment_data()
 
     # Challenge A
     #
