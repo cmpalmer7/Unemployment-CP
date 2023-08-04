@@ -1,6 +1,6 @@
 
 
-from app.unemployment import format_pct, fetch_data
+from app.unemployment import format_pct, fetch_unemployment_data
 
 
 def test_to_pct():
@@ -12,9 +12,9 @@ def test_to_pct():
     result = format_pct(25.4)
     assert result == '25.40%'
 
-def test_fetch_data():
+def test_fetch_unemployment_data():
 
-    data = fetch_data()
+    data = fetch_unemployment_data()
 
     # it returns a list of dicts:
     assert isinstance(data, list)
