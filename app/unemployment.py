@@ -1,24 +1,11 @@
-from getpass import getpass
-import os
-from dotenv import load_dotenv
-import requests
 import json
 from pprint import pprint
 from statistics import mean
+
+import requests
 from plotly.express import line
 
-#API_KEY = getpass("Please input your AlphaVantage API Key: ")
-
-#from getpass import getpass
-#
-#API_KEY = getpass("Please input your AlphaVantage API Key: ")
-
-
-load_dotenv() #> invoking this function loads contents of the ".env" file into the script's environment...
-
-API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
-
-
+from app.alpha import API_KEY
 
 
 def format_pct(my_number):
@@ -30,6 +17,8 @@ def format_pct(my_number):
     Returns (str) like '3.66%'
     """
     return f"{my_number:.2f}%"
+
+
 
 def fetch_unemployment_data():
     """Fetches unemployment data from the AlphaVantage API.
@@ -46,6 +35,7 @@ def fetch_unemployment_data():
     pprint(parsed_response)
 
     data = parsed_response["data"]
+    #return data
 
     # we could return the raw data, but the values are strings,
     # so let's convert them to floats (more usable) before returning
@@ -54,10 +44,15 @@ def fetch_unemployment_data():
 
     return data
 
+
+
+
 if __name__ == "__main__":
-    # only run if run from command line 
+
+
 
     data = fetch_unemployment_data()
+
 
     # Challenge A
     #
@@ -67,23 +62,20 @@ if __name__ == "__main__":
     print("-------------------------")
     print("LATEST UNEMPLOYMENT RATE:")
     #print(data[0])
-    print(f"{format_pct(float(data[0]['value']))}", "as of", data[0]["date"])
-
-
+    print(f"{format_pct(data[0]['value'])}", "as of", data[0]["date"])
 
     # Challenge B
     #
     # What is the average unemployment rate for all months during this calendar year?
     # ... How many months does this cover?
 
-
     this_year = [d for d in data if "2023-" in d["date"]]
 
-    rates_this_year = [float(d["value"]) for d in this_year]
+    rates_this_year = [d["value"] for d in this_year]
     #print(rates_this_year)
 
     print("-------------------------")
-    print("AVG UNEMPLOYMENT THIS YEAR:", f"{format_pct(float(mean(rates_this_year)))}")
+    print("AVG UNEMPLOYMENT THIS YEAR:", f"{format_pct(mean(rates_this_year))}")
     print("NO MONTHS:", len(this_year))
 
 
@@ -91,10 +83,8 @@ if __name__ == "__main__":
     #
     # Plot a line chart of unemployment rates over time.
 
-
-
     dates = [d["date"] for d in data]
-    rates = [float(d["value"]) for d in data]
+    rates = [d["value"] for d in data]
 
     fig = line(x=dates, y=rates, title="United States Unemployment Rate over time", labels= {"x": "Month", "y": "Unemployment Rate"})
     fig.show()
