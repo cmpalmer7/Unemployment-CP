@@ -17,3 +17,8 @@ def create_app():
     app.register_blueprint(home_routes)
     app.register_blueprint(unemployment_routes)
     app.register_blueprint(stocks_routes)
+        return app
+
+if __name__ == "__main__":
+    my_app = create_app()
+    my_app.run(debug=True)
