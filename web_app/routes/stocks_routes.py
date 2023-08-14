@@ -64,4 +64,4 @@ def stocks_api():
         return {"symbol": symbol, "data": data }
     except Exception as err:
         print('OOPS', err)
-        return {"message":"Market Data Error. Please try again."}, 404
+        return {"message":"Market Data Error. Please try again."}, 404 

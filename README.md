@@ -35,7 +35,13 @@ Run the report:
 python -m app.unemployment
 ```
 
-Runt the web apps:
+Run the report:
+
+```sh
+python -m app.tweets
+```
+
+Run the web apps:
 ```sh
 FLASK_APP=web_app flask run
 ```

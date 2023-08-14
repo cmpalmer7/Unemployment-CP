@@ -11,3 +11,9 @@ pytest
 
 flask # <--- ADD FOR WEB APP
 gunicorn
+
+tweepy
+
+transformers
+
+torch
