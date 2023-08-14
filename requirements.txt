@@ -17,3 +17,7 @@ tweepy
 transformers
 
 torch
+
+xformers
+
+emoji

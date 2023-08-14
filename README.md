@@ -35,7 +35,7 @@ Run the report:
 python -m app.unemployment
 ```
 
-Run the report:
+Run the tweet report:
 
 ```sh
 python -m app.tweets
